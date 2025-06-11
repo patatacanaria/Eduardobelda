@@ -25,10 +25,22 @@ nav a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
+    cursor: pointer;
 }
 
-section {
+main {
     padding: 2rem;
+}
+
+.section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.section.active {
+    display: block;
+    opacity: 1;
 }
 
 .galeria {
