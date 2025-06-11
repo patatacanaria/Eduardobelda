@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mi Web Personal</title>
     <link rel="stylesheet" href="style.css" />
-    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
@@ -59,29 +58,28 @@
     <footer>
         <p>© [Tu Nombre] - 2025</p>
     </footer>
-</body>
-    <!-- Asegúrate de tener esto justo antes del cierre de </body> -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('nav a');
-    const sections = document.querySelectorAll('main > section');
 
-    function showSection(id) {
-        sections.forEach(sec => {
-            sec.style.display = sec.id === id ? 'block' : 'none';
-        });
-    }
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const navLinks = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('main .section');
 
-    links.forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            const id = link.getAttribute('data-section');
-            showSection(id);
+        navLinks.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = link.getAttribute('data-section');
+
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                const activeSection = document.getElementById(target);
+                if (activeSection) {
+                    activeSection.classList.add('active');
+                }
+            });
         });
     });
-
-    showSection('inicio'); // Mostrar solo el inicio al principio
-});
-</script>
-
+    </script>
+</body>
 </html>
