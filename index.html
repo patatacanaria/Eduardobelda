@@ -60,4 +60,28 @@
         <p>© [Tu Nombre] - 2025</p>
     </footer>
 </body>
+    <!-- Asegúrate de tener esto justo antes del cierre de </body> -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('main > section');
+
+    function showSection(id) {
+        sections.forEach(sec => {
+            sec.style.display = sec.id === id ? 'block' : 'none';
+        });
+    }
+
+    links.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const id = link.getAttribute('data-section');
+            showSection(id);
+        });
+    });
+
+    showSection('inicio'); // Mostrar solo el inicio al principio
+});
+</script>
+
 </html>
